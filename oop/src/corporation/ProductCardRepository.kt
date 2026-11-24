@@ -62,14 +62,14 @@ object ProductCardRepository {
             return cards
         }
 
-        val cardsAsString = content.split("\n")
+        val cardsAsString = content.lines()
 
         for (card in cardsAsString) {
             val properties = card.split("%")
             val name = properties[0]
             val brand = properties[1]
             val price = properties[2].toInt()
-            val type = properties.last()
+            val type = properties.last().trim()
             val productType = ProductType.valueOf(type)
             val productCard = when (productType) {
                 ProductType.FOOD -> {
