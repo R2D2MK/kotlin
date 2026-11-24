@@ -1,8 +1,7 @@
-/.idea/
-**/.idea/workspace.xml
-**/.idea/shelf/
-.gradle/
-build/
-out/
-.kotlin/
-local.properties
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
