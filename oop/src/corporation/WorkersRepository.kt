@@ -88,7 +88,7 @@ object WorkersRepository {
             return employees
         }
 
-        val employeesAsString = content.split("\n")
+        val employeesAsString = content.lines()
 
         for (employeeString in employeesAsString) {
             val properties = employeeString.split("%")
@@ -96,7 +96,7 @@ object WorkersRepository {
             val name = properties[1]
             val age = properties[2].toInt()
             val salary = properties[3].toInt()
-            val positionAsText = properties.last()
+            val positionAsText = properties.last().trim()
             val position = Position.valueOf(positionAsText)
             val worker = when (position) {
                 Position.DIRECTOR -> Director(id, name, age, salary)
