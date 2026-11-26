@@ -5,7 +5,6 @@ import java.io.File
 fun main() {
     val operationCodes = OperationCode.entries
     val file = File("todo_list.txt")
-    val collectionTasks = mutableListOf<String>()
     while (true) {
         println("Enter the operation code: ")
         for ((index, code) in operationCodes.withIndex()) {
@@ -19,7 +18,7 @@ fun main() {
         when (operationCode) {
             OperationCode.EXIT -> break
             OperationCode.ADD_NEW_ITEM -> {
-                println("Adding new item: ")
+                println("Enter a new item: ")
                 val item = readln()
                 file.appendText("${item}\n")
             }
@@ -28,9 +27,10 @@ fun main() {
                 val content = file.readText().trim()
                 val items = content.split("\n")
                 for ((index, item) in items.withIndex()) {
-                    print("${index + 1} - ${item.trim()}\n")
+                    println("$index - $item")
                 }
             }
+
             OperationCode.CLEAR_ALL_TASKS -> file.writeText("")
         }
     }

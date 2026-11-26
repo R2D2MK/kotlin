@@ -2,7 +2,7 @@ package less_3_15.HW_3_15
 
 fun task(listUser: List<String>): List<String> {
     val users = listUser.toMutableList()
-    val input = readln()
+    val input = readln().trim()
 
     fun printInfo() {
         for (user in users) {
@@ -12,7 +12,6 @@ fun task(listUser: List<String>): List<String> {
     when (input) {
         "SHOW" -> printInfo()
         "ADD" -> {
-//            println("Enter name new user: ")
             val newUser = readln()
             users.add(newUser)
             printInfo()
